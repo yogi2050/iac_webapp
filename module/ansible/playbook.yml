@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install web server
+      yum:
+        name: "{{ web_server_package }}"
+        state: present
+
+    - name: Start web server
+      service:
+        name: "{{ web_server_service }}"
+        state: started
